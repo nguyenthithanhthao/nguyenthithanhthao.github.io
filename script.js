@@ -1,5 +1,5 @@
 window.onload = function() {
-
+/*
   // Normalize the various vendor prefixed versions of getUserMedia.
   navigator.getUserMedia = (navigator.getUserMedia ||
                             navigator.webkitGetUserMedia ||
@@ -39,8 +39,8 @@ window.onload = function() {
     } else {
       alert('Sorry, your browser does not support getUserMedia');
     }
-    
-   /* // Grab elements, create settings, etc.
+    */
+    // Grab elements, create settings, etc.
     var video = document.getElementById('video');
 
     // Get access to the camera!
@@ -59,5 +59,5 @@ window.onload = function() {
     // Trigger photo take
     document.getElementById("snap").addEventListener("click", function() {
         context.drawImage(video, 0, 0, 640, 480);
-    });*/
+    });
 }
