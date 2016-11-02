@@ -1,6 +1,6 @@
 window.onload = function() {
 
-  // Normalize the various vendor prefixed versions of getUserMedia.
+  /*// Normalize the various vendor prefixed versions of getUserMedia.
   navigator.getUserMedia = (navigator.getUserMedia ||
                             navigator.webkitGetUserMedia ||
                             navigator.mozGetUserMedia || 
@@ -38,12 +38,23 @@ window.onload = function() {
 
     } else {
       alert('Sorry, your browser does not support getUserMedia');
-    }
+    }*/
     
+    // Grab elements, create settings, etc.
+    var video = document.getElementById('video');
+
+    // Get access to the camera!
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Not adding `{ audio: true }` since we only want video now
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            video.src = window.URL.createObjectURL(stream);
+            video.play();
+        });
+    }
     // Elements for taking the snapshot
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
-    var video = document.getElementById('camera-stream');
+    var video = document.getElementById('video');
 
     // Trigger photo take
     document.getElementById("snap").addEventListener("click", function() {
